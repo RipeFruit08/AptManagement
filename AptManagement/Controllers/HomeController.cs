@@ -12,17 +12,9 @@ namespace AptManagement.Controllers
 {
     public class HomeController : Controller
     {
-        IApartmentRepo _aptRepo;
-
-        public HomeController()
-        {
-            AppDataContext Context = new AppDataContext();
-            _aptRepo = new ApartmentRepo(Context);
-        }
 
         public ActionResult Index()
         {
-            Apartment apt = _aptRepo.GetApartment(1);
             return View();
         }
 

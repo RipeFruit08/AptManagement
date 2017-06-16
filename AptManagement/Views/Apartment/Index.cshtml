@@ -1,0 +1,42 @@
+﻿@model AptManagement.ViewModels.ApartmentViewModel
+@using AptManagement.ViewModels;
+@{
+    ViewBag.Title = "Apartments";
+}
+
+<h2>Apartments</h2>
+
+<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+    <div class="btn-group" role="group" aria-label="First group">
+        @*
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="email">Email address:</label>
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" id="email">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        *@
+        @using (Html.BeginForm("SearchApartments", "Apartment", FormMethod.Post, new { @class = "form-inline" }))
+        {
+            <div class="form-group">
+                @Html.TextBoxFor(m => m.SearchTerm, new { @class = "form-control" })
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        }
+        @*
+        <button type="button" class="btn btn-secondary">1</button>
+        <button type="button" class="btn btn-secondary">2</button>
+        <button type="button" class="btn btn-secondary">3</button>
+        <button type="button" class="btn btn-secondary">4</button>
+        *@
+    </div>
+    <div class="btn-group pull-right" role="group" aria-label="Second group">
+        <a class="btn btn-primary pull-right" href="@Url.Action("AddApartment", "Apartment")">
+            <span class="glyphicon glyphicon-plus"></span>
+            Add Apartment
+        </a>
+    </div>
+</div>
