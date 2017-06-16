@@ -21,8 +21,8 @@ namespace AptManagement.Controllers
             _aptRepo = new ApartmentRepo(Context);
         }
 
-        /* 
-        TODO this works somehow but current project configuration doesn't 
+        /*
+        TODO this works somehow but current project configuration doesn't
         allow this to work. Something related to Ninject i think
         public ApartmentController(IApartmentRepo aptRepo)
         {
