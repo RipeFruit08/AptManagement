@@ -1,0 +1,16 @@
+﻿@model AptManagement.ViewModels.ApartmentViewModel
+
+@{
+    ViewBag.Title = "AddApartment";
+}
+
+<h2>AddApartment</h2>
+
+@using (Html.BeginForm("AddApartment", "Apartment", FormMethod.Post))
+{
+    @Html.EditorFor(m => m.CurrentApt)
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

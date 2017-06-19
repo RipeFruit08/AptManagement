@@ -2,6 +2,7 @@
 using AptManagement.Data.Context.Dapper.Repos;
 using AptManagement.Data.IRepos;
 using AptManagement.Data.Models;
+using AptManagement.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,7 +40,26 @@ namespace AptManagement.Controllers
         [HttpGet]
         public ActionResult AddApartment()
         {
-            return Content("Add page has not been written");
+            //return Content("Add page has not been written");
+            ApartmentViewModel avm = new ApartmentViewModel();
+            return View(avm);
+        }
+
+        [HttpPost]
+        public ActionResult AddApartment(Apartment CurrentApt)
+        {
+            _aptRepo.AddApartment(CurrentApt);
+            int AptID = _aptRepo.GetMaxAptID();
+            return RedirectToAction("ApartmentDetails", new { AptID = AptID });
+        }
+
+        [HttpGet]
+        public ActionResult ApartmentDetails(int AptID = 0)
+        {
+            if (AptID == 0) return RedirectToAction("Error", "Home");
+            ApartmentViewModel avm = new ApartmentViewModel();
+            avm.CurrentApt = _aptRepo.GetApartment(AptID);
+            return View(avm);
         }
 
         [HttpPost]

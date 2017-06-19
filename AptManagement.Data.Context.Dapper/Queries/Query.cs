@@ -9,7 +9,9 @@ namespace AptManagement.Data.Context.Dapper.Queries
 {
     internal static class Query
     {
+        public static string AddApartment { get; private set; }
         public static string GetApartment { get; private set; }
+        public static string MaxAptID { get; private set; }
 
         private static IEnumerable<string> SqlFilePaths { get; set; }
 

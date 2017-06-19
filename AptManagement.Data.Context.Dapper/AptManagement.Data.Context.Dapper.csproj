@@ -75,6 +75,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <EmbeddedResource Include="Queries\AddApartment.sql" />
+    <EmbeddedResource Include="Queries\MaxAptID.sql" />
     <EmbeddedResource Include="Queries\GetApartment.sql" />
   </ItemGroup>
   <ItemGroup>

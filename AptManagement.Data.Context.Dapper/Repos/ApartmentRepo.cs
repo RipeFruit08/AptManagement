@@ -22,6 +22,18 @@ namespace AptManagement.Data.Context.Dapper.Repos
             Context = context;
             Map = new AppModelMapper();
         }
+        public void AddApartment(Apartment apt)
+        {
+            try
+            {
+                Context.MYDB.Query<Apartment>(
+                    Queries.Query.AddApartment, GetAddParams(apt));
+            }
+            catch (SqlException exc)
+            {
+                Debug.WriteLine(exc);
+            }
+        }
         public Apartment GetApartment(int AptID)
         {
             Apartment result = null;
@@ -37,6 +49,29 @@ namespace AptManagement.Data.Context.Dapper.Repos
                 Debug.WriteLine(exc);
             }
             return result;
+        }
+        public int GetMaxAptID()
+        {
+            int result = 0;
+            try
+            {
+                result = Context.MYDB.Query<int>(
+                    Queries.Query.MaxAptID).FirstOrDefault();
+            }
+            catch (SqlException exc)
+            {
+                Debug.WriteLine(exc);
+            }
+            return result;
+        }
+        private DynamicParameters GetAddParams(Apartment apt)
+        {
+            DynamicParameters Params = new DynamicParameters();
+            Params.Add("AptName", apt.AptName);
+            Params.Add("AptNumber", apt.AptNumber);
+            Params.Add("TenantOne", apt.TenantOne);
+            Params.Add("TenantTwo", apt.TenantTwo);
+            return Params;
         }
     }
 }

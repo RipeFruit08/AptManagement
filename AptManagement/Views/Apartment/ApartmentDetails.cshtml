@@ -1,0 +1,13 @@
+﻿@model AptManagement.ViewModels.ApartmentViewModel
+
+@{
+    ViewBag.Title = "AddApartment";
+}
+
+<h2>AddApartment</h2>
+
+@Html.DisplayFor(m => m.CurrentApt)
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
