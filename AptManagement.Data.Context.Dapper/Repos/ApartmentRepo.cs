@@ -64,9 +64,31 @@ namespace AptManagement.Data.Context.Dapper.Repos
             }
             return result;
         }
+        public void UpdateApartment(Apartment apt)
+        {
+            try
+            {
+                Context.MYDB.Query<Apartment>(
+                    Queries.Query.UpdateApartment, GetEditParams(apt));
+            }
+            catch (SqlException exc)
+            {
+                Debug.WriteLine(exc);
+            }
+        }
         private DynamicParameters GetAddParams(Apartment apt)
         {
             DynamicParameters Params = new DynamicParameters();
+            Params.Add("AptName", apt.AptName);
+            Params.Add("AptNumber", apt.AptNumber);
+            Params.Add("TenantOne", apt.TenantOne);
+            Params.Add("TenantTwo", apt.TenantTwo);
+            return Params;
+        }
+        private DynamicParameters GetEditParams(Apartment apt)
+        {
+            DynamicParameters Params = new DynamicParameters();
+            Params.Add("AptID", apt.AptID);
             Params.Add("AptName", apt.AptName);
             Params.Add("AptNumber", apt.AptNumber);
             Params.Add("TenantOne", apt.TenantOne);

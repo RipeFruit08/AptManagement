@@ -8,5 +8,6 @@ namespace AptManagement.Data.IRepos
         void AddApartment(Apartment apt);
         Apartment GetApartment(int AptID);
         int GetMaxAptID();
+        void UpdateApartment(Apartment apt);
     }
 }

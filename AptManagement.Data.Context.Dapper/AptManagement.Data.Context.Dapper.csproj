@@ -75,9 +75,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <EmbeddedResource Include="Queries\AddApartment.sql" />
-    <EmbeddedResource Include="Queries\MaxAptID.sql" />
-    <EmbeddedResource Include="Queries\GetApartment.sql" />
+    <EmbeddedResource Include="Queries\Apartment\UpdateApartment.sql" />
+    <EmbeddedResource Include="Queries\Apartment\AddApartment.sql" />
+    <EmbeddedResource Include="Queries\Apartment\MaxAptID.sql" />
+    <EmbeddedResource Include="Queries\Apartment\GetApartment.sql" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config\AppDataContext.cs" />

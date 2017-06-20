@@ -62,6 +62,22 @@ namespace AptManagement.Controllers
             return View(avm);
         }
 
+        [HttpGet]
+        public ActionResult EditApartment(int AptID = 0)
+        {
+            if (AptID == 0) return RedirectToAction("Error", "Home");
+            ApartmentViewModel avm = new ApartmentViewModel();
+            avm.CurrentApt = _aptRepo.GetApartment(AptID);
+            return View(avm);
+        }
+
+        [HttpPost]
+        public ActionResult EditApartment(Apartment CurrentApt)
+        {
+            _aptRepo.UpdateApartment(CurrentApt);
+            return RedirectToAction("ApartmentDetails", new { AptID = CurrentApt.AptID });
+        }
+
         [HttpPost]
         public ActionResult SearchApartments(string SearchTerm)
         {
