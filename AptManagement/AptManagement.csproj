@@ -201,6 +201,7 @@
     <Content Include="Views\Shared\DisplayTemplates\Apartment.cshtml" />
     <Content Include="Views\Apartment\ApartmentDetails.cshtml" />
     <Content Include="Views\Apartment\EditApartment.cshtml" />
+    <Content Include="Views\Shared\ApartmentTableRow.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

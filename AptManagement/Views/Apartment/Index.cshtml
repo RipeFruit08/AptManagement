@@ -1,5 +1,7 @@
-﻿@model AptManagement.ViewModels.ApartmentViewModel
-@using AptManagement.ViewModels;
+﻿@using AptManagement.ViewModels;
+@using AptManagement.Data.Models;
+@using System.Linq;
+@model ApartmentViewModel
 @{
     ViewBag.Title = "Apartments";
 }
@@ -8,17 +10,6 @@
 
 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
     <div class="btn-group" role="group" aria-label="First group">
-        @*
-        <form class="form-inline">
-            <div class="form-group">
-                <label for="email">Email address:</label>
-            </div>
-            <div class="form-group">
-                <input type="email" class="form-control" id="email">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-        *@
         @using (Html.BeginForm("SearchApartments", "Apartment", FormMethod.Post, new { @class = "form-inline" }))
         {
             <div class="form-group">
@@ -26,17 +17,34 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         }
-        @*
-        <button type="button" class="btn btn-secondary">1</button>
-        <button type="button" class="btn btn-secondary">2</button>
-        <button type="button" class="btn btn-secondary">3</button>
-        <button type="button" class="btn btn-secondary">4</button>
-        *@
     </div>
     <div class="btn-group pull-right" role="group" aria-label="Second group">
         <a class="btn btn-primary pull-right" href="@Url.Action("AddApartment", "Apartment")">
             <span class="glyphicon glyphicon-plus"></span>
             Add Apartment
         </a>
+    </div>
+</div>
+<hr />
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Apartments</div>
+        <div class="panel-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Apartment Unit</th>
+                        <th>Occupant 1</th>
+                        <th>Occupant 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(Apartment apt in Model.Apartments as IEnumerable<Apartment>)
+                    {
+                        Html.RenderPartial("ApartmentTableRow", apt);
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>

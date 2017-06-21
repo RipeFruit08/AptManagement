@@ -32,9 +32,11 @@ namespace AptManagement.Controllers
         */
 
         // GET: Apartment
-        public ActionResult Index()
+        public ActionResult Index(string searchTerm = "")
         {
-            return View();
+            ApartmentViewModel avm = new ApartmentViewModel();
+            avm.Apartments = _aptRepo.SearchApartments(searchTerm);
+            return View(avm);
         }
 
         [HttpGet]

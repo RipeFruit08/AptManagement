@@ -1,0 +1,15 @@
+﻿@model AptManagement.Data.Models.Apartment
+
+    <tr>
+        <td>
+            @Html.ActionLink(Model.AptName.ToString() + "-" + Model.AptNumber.ToString(),
+                "ApartmentDetails", new { AptID = Model.AptID })
+        </td>
+        <td>
+            @Html.DisplayFor(m => m.TenantOne)
+        </td>
+        <td>
+            @Html.DisplayFor(m => m.TenantTwo)
+        </td>
+    </tr>
+
