@@ -1,8 +1,6 @@
 ﻿@model AptManagement.Data.Models.Apartment
 
 <div>
-    <h4>Apartment</h4>
-    <hr />
     <dl class="dl-horizontal">
         @Html.HiddenFor(m => m.AptID)
         <dt>
@@ -39,7 +37,3 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

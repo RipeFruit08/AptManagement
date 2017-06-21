@@ -1,13 +1,17 @@
 ﻿@model AptManagement.ViewModels.ApartmentViewModel
 
 @{
-    ViewBag.Title = "AddApartment";
+    ViewBag.Title = "Apartment Details";
 }
 
-<h2>AddApartment</h2>
-
+<h2>Apartment Details</h2>
+<hr />
+    <a href="@Url.Action("Index")" class="btn btn-danger">
+        <span class="glyphicon glyphicon-arrow-left"></span>
+        Back to List
+    </a>
 @Html.DisplayFor(m => m.CurrentApt)
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <a href="@Url.Action("EditApartment", new { AptID = Model.CurrentApt.AptID })" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        Edit Apartment
+    </a>
