@@ -4,13 +4,15 @@
     ViewBag.Title = "EditApartment";
 }
 
-<h2>AddApartment</h2>
+<h2>Editing an apartment</h2>
 
 @using (Html.BeginForm("EditApartment", "Apartment", FormMethod.Post))
 {
+    <hr />
     @Html.EditorFor(m => m.CurrentApt)
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <a href="javascript:history.go(-1)" class="btn btn-danger">
+        <span class="glyphicon glyphicon-remove"></span>
+        Cancel
+    </a>
