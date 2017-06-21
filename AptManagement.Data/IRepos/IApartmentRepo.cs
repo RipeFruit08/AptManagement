@@ -1,5 +1,6 @@
 ﻿using System;
 using AptManagement.Data.Models;
+using System.Collections.Generic;
 
 namespace AptManagement.Data.IRepos
 {
@@ -8,6 +9,7 @@ namespace AptManagement.Data.IRepos
         void AddApartment(Apartment apt);
         Apartment GetApartment(int AptID);
         int GetMaxAptID();
+        IEnumerable<Apartment> SearchApartments(string searchTerm);
         void UpdateApartment(Apartment apt);
     }
 }

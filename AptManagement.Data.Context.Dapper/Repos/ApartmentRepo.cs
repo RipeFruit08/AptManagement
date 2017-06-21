@@ -64,6 +64,20 @@ namespace AptManagement.Data.Context.Dapper.Repos
             }
             return result;
         }
+        public IEnumerable<Apartment> SearchApartments(string searchTerm)
+        {
+            IEnumerable<Apartment> results = null;
+            try
+            {
+                results = Context.MYDB.Query<Apartment>(
+                    Queries.Query.SearchApartments, new { searchTerm });
+            }
+            catch (SqlException exc)
+            {
+                Debug.WriteLine(exc);
+            }
+            return results;
+        }
         public void UpdateApartment(Apartment apt)
         {
             try
