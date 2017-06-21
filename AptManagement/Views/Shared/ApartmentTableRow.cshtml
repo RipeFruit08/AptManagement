@@ -6,10 +6,24 @@
                 "ApartmentDetails", new { AptID = Model.AptID })
         </td>
         <td>
-            @Html.DisplayFor(m => m.TenantOne)
+            @if( string.IsNullOrEmpty(Model.TenantOne))
+            {
+                <text>Vacant</text>
+            }
+            else
+            {
+                @Html.DisplayFor(m => m.TenantOne)
+            }
         </td>
         <td>
-            @Html.DisplayFor(m => m.TenantTwo)
+            @if( string.IsNullOrEmpty(Model.TenantTwo))
+            {
+                <text>Vacant</text>
+            }
+            else
+            {
+                @Html.DisplayFor(m => m.TenantTwo)
+            }
         </td>
     </tr>
 

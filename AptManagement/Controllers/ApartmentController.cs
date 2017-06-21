@@ -32,7 +32,7 @@ namespace AptManagement.Controllers
         */
 
         // GET: Apartment
-        public ActionResult Index(string searchTerm = "")
+        public ActionResult Index(string searchTerm = null)
         {
             ApartmentViewModel avm = new ApartmentViewModel();
             avm.Apartments = _aptRepo.SearchApartments(searchTerm);
