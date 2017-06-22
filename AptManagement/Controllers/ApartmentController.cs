@@ -81,10 +81,9 @@ namespace AptManagement.Controllers
         }
 
         [HttpPost]
-        public ActionResult SearchApartments(string SearchTerm)
+        public ActionResult SearchApartments(string searchTerm)
         {
-            IEnumerable<Apartment> apts = _aptRepo.SearchApartments(SearchTerm);
-            return Content("No page has been written yet");
+            return RedirectToAction("Index", new { searchTerm = searchTerm });
         }
     }
 }
