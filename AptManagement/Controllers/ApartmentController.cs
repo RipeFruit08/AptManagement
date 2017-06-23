@@ -64,6 +64,14 @@ namespace AptManagement.Controllers
             return View(avm);
         }
 
+        [HttpPost]
+        public ActionResult DeleteApartment(int AptID = 0)
+        {
+            if (AptID == 0) return RedirectToAction("Error", "Home");
+            if (!_aptRepo.DeleteApartment(AptID)) return RedirectToAction("Error", "Home");
+            return RedirectToAction("Index");
+        }
+
         [HttpGet]
         public ActionResult EditApartment(int AptID = 0)
         {

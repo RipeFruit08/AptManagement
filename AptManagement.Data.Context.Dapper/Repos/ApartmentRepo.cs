@@ -34,6 +34,20 @@ namespace AptManagement.Data.Context.Dapper.Repos
                 Debug.WriteLine(exc);
             }
         }
+        public bool DeleteApartment(int AptID)
+        {
+            try
+            {
+                Context.MYDB.Query<Apartment>(
+                    Queries.Query.DeleteApartment, new { AptID });
+                return true;
+            }
+            catch (SqlException exc)
+            {
+                Debug.WriteLine(exc);
+                return false;
+            }
+        }
         public Apartment GetApartment(int AptID)
         {
             Apartment result = null;

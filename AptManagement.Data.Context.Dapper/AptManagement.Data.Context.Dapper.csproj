@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <EmbeddedResource Include="Queries\Apartment\DeleteApartment.sql" />
     <EmbeddedResource Include="Queries\Apartment\SearchApartments.sql" />
     <EmbeddedResource Include="Queries\Apartment\UpdateApartment.sql" />
     <EmbeddedResource Include="Queries\Apartment\AddApartment.sql" />

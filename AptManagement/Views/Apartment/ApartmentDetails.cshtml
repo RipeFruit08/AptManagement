@@ -11,7 +11,14 @@
         Back to List
     </a>
 @Html.DisplayFor(m => m.CurrentApt)
-    <a href="@Url.Action("EditApartment", new { AptID = Model.CurrentApt.AptID })" class="btn btn-primary">
+    <a href="@Url.Action("EditApartment", new { AptID = Model.CurrentApt.AptID })" 
+       class="btn btn-primary">
         <span class="glyphicon glyphicon-pencil"></span>
-        Edit Apartment
+        Edit
+    </a>
+
+    <a href="@Url.Action("DeleteApartment")" class="btn btn-danger" id="delAptBtn"
+       data-AptID="@Model.CurrentApt.AptID">
+        <span class="glyphicon glyphicon-trash"></span>
+        Delete
     </a>
