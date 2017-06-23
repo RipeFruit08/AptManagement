@@ -16,6 +16,11 @@
         <span class="glyphicon glyphicon-pencil"></span>
         Edit
     </a>
+    @using (Html.BeginForm("DeleteApartment", "Apartment", FormMethod.Post, new { @class = "form-inline" }))
+    {
+        <input hidden name="AptID" value="@Model.CurrentApt.AptID" />
+        <button type="submit" class="btn btn-warning">Delete</button>
+    }
 
     <a href="@Url.Action("DeleteApartment")" class="btn btn-danger" id="delAptBtn"
        data-AptID="@Model.CurrentApt.AptID">
